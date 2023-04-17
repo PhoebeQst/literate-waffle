@@ -1,49 +1,29 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+#include <iostream>
+#include <stdio.h>
+using namespace std;
 struct student{
-	char name[30];
-	float ps;
-	float qm;
-	float grade; 
-}a[100];
- 
+	char a[30];
+	double pingshi;
+	double qimo;
+}; 
 int main()
 {
+	struct student a[100];
+	double b[100];
 	int n;
-	scanf("%d",&n);
-	int i;
-	for(i=0;i<n;i++){
-		scanf("%s %f %f",&a[i].name,&a[i].ps,&a[i].qm);  
-		a[i].grade=0.4*a[i].ps+0.6*a[i].qm;
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i].a>>a[i].pingshi>>a[i].qimo;
 	}
-     int j,m;
-      for(i=0;i<n;i++)     
-    {
-    	for(j=0;j<n-i-1;j++)           
-    	{
-    		
-			if(a[j].grade<a[j+1].grade)	
-			{
-				char str[101];      
-		       m=a[j].grade;
-				a[j].grade=a[j+1].grade;
-				a[j+1].grade=m;
-					strcpy(str,a[j+1].name); 
-					strcpy(a[j+1].name,a[j].name);
-					strcpy(a[j].name,str) ;     
-				}
-		 } 
+	for(int i1=0;i1<n;i1++)
+	{
+		b[i1]=0.4*a[i1].pingshi+0.6*a[i1].qimo;
 	}
-     
-	for(i=0;i<n;i++){
-		printf("%30s ",a[i].name); 
-		printf("%.2f ",a[i].ps);
-		printf("%.2f ",a[i].qm);   
-		printf("%.2f/n",a[i].grade);
-	}
-	return 0;
+	for(int i3=0;i3<n;i3++)
+	{
+	printf("%s ",a[i3].a);
+	printf("%.2f %.2f %.2f",a[i3].pingshi,a[i3].qimo,b[i3]);
+	printf("\n");}
+     return 0;
 }
-
-
-
